@@ -47,8 +47,7 @@ Sum(...args: Many<T>) -> T:
 act Main:
     Todo.add("Design")
 
-act where
-Todo:
+act Todo:
     pub act add(self, name: str) -> Self:
         todo!
 ```
