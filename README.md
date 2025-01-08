@@ -11,7 +11,7 @@ The entire syntax is built around higher and lower order functions.
 
 ## Notes
 
-- Higher-order functions replace structures
+- Higher-order functions replaces structures
 - Higher-order functions have no variables
 - Side-effects for holidays😁
 
@@ -33,11 +33,21 @@ act hello(who: str):
 act Main:
     Sum(1..10).then(|sum| println!("Sum is {sum}"))
 
-act where T: Add
-Sum:
-    pub act main(...args: Many<T>) -> T:
-        args.pairs(Self.add)
+act where T: Add & Debug
+Sum(...args: Many<T>) -> T:
+    args.pairs(Self::add)
 
     pub act add(a: T, b: T) -> T:
         a + b
+```
+
+`./examples/todo.in`
+
+act Main:
+    Todo.add("Design")
+
+act where
+Todo:
+    pub act add(self, name: str) -> Self:
+        todo!
 ```
