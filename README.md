@@ -43,6 +43,7 @@ Sum(...args: Many<T>) -> T:
 
 `./examples/todo.in`
 
+```inact
 act Main:
     Todo.add("Design")
 
