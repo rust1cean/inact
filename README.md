@@ -34,7 +34,7 @@ act Main:
     Sum(1..10).then(|sum| println!("Sum is {sum}"))
 
 act where T: Add & Debug
-Sum(...args: Many<T>) -> T:
+Sum(..args: Many<T>) -> T:
     args.pairs(Self::add)
 
     pub act add(a: T, b: T) -> T:
@@ -45,9 +45,9 @@ Sum(...args: Many<T>) -> T:
 
 ```inact
 act Main:
-    Todo.add("Design")
+    Todo.add("Design", "Read")
 
 act Todo:
-    pub act add(self, name: str) -> Self:
+    pub act add(self, ..names: Many<str>) -> Self:
         todo!
 ```
