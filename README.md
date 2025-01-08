@@ -35,7 +35,7 @@ act Main:
 
 act where T: Add
 Sum:
-    pub act main(...args: [T]) -> T:
+    pub act main(...args: Many<T>) -> T:
         args.pairs(Self.add)
 
     pub act add(a: T, b: T) -> T:
